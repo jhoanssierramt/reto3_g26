@@ -4,10 +4,13 @@
  */
 package co.edu.usa.reto3.repositorios.crud;
 
+import co.edu.usa.reto3.modelo.Client;
+import org.springframework.data.repository.CrudRepository;
+
 /**
  *
  * @author Jeison Altamar
  */
-public interface ClientCrudRepository {
+public interface ClientCrudRepository extends CrudRepository<Client,Integer>{
     
 }
