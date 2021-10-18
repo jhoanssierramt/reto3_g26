@@ -34,8 +34,8 @@ public class Ortopedic {
     private String description;
   
     @ManyToOne
-    @JoinColumn(name = "categoryId")
-    @JsonIgnoreProperties("category")
+    @JoinColumn(name = "id")
+    @JsonIgnoreProperties("ortopedics")
     private Category category;
 
     @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "category")
