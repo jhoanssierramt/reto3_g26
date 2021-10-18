@@ -4,10 +4,13 @@
  */
 package co.edu.usa.reto3.repositorios.crud;
 
+import co.edu.usa.reto3.modelo.Message;
+import org.springframework.data.repository.CrudRepository;
+
 /**
  *
  * @author Usuario
  */
-public interface MessageCrudRepository {
-    
+public interface MessageCrudRepository extends CrudRepository<Message,Integer>{
+  
 }
