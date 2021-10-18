@@ -4,13 +4,13 @@
  */
 package co.edu.usa.reto3.repositorios.crud;
 
-import co.edu.usa.reto3.modelo.Ortopedic;
+import co.edu.usa.reto3.modelo.Category;
 import org.springframework.data.repository.CrudRepository;
 
 /**
  *
  * @author henry
  */
-public interface OrtopedicCrudRepository extends CrudRepository<Ortopedic,Integer>{
+public interface CategoryCrudRepository extends CrudRepository<Category,Integer> {
     
 }

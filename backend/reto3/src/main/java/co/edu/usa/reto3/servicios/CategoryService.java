@@ -4,8 +4,8 @@
  */
 package co.edu.usa.reto3.servicios;
 
-import co.edu.usa.reto3.modelo.Ortopedic;
-import co.edu.usa.reto3.repositorios.OrtopedicRepository;
+import co.edu.usa.reto3.modelo.Category;
+import co.edu.usa.reto3.repositorios.CategoryRepository;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,22 +16,22 @@ import org.springframework.stereotype.Service;
  * @author henry
  */
 @Service
-public class OrtopedicService {
+public class CategoryService {
     
     @Autowired
-    private OrtopedicRepository OrtopedicRepository;
+    private CategoryRepository categoryRepository;
     
-    public List<Ortopedic> getAll(){
-        return OrtopedicRepository.getAll();
+    public List<Category> getAll(){
+        return categoryRepository.getAll();
     }
     
-    public Ortopedic save(Ortopedic Ortopedic){
-        return OrtopedicRepository.save(Ortopedic);
+    public Category save(Category category){
+        return categoryRepository.save(category);
     }
     
-    public Ortopedic getById(int id){
-        Optional<Ortopedic> Ortopedic = OrtopedicRepository.getById(id);
-        return Ortopedic.orElse(new Ortopedic());
+    public Category getById(int id){
+        Optional<Category> category = categoryRepository.getById(id);
+        return category.orElse(new Category());
 //        if (categoria.isPresent()){
 //            return categoria.get();
 //        }else{

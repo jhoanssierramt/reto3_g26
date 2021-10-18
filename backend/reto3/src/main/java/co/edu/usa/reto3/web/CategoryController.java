@@ -4,8 +4,8 @@
  */
 package co.edu.usa.reto3.web;
 
-import co.edu.usa.reto3.modelo.Ortopedic;
-import co.edu.usa.reto3.servicios.OrtopedicService;
+import co.edu.usa.reto3.modelo.Category;
+import co.edu.usa.reto3.servicios.CategoryService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,20 +21,21 @@ import org.springframework.web.bind.annotation.RestController;
  * @author henry
  */
 @RestController
-@RequestMapping("/api/Ortopedic")
-public class OrtopedicController {
+@RequestMapping("/api/Category")
+public class CategoryController {
     
     @Autowired
-    private OrtopedicService OrtopedicService;
+    private CategoryService categoryService;
     
     @GetMapping("/all")
-    public List<Ortopedic> getAll(){
-        return OrtopedicService.getAll();
+    public List<Category> getAll(){
+        return categoryService.getAll();
     }
     
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
-    public Ortopedic save(@RequestBody Ortopedic Ortopedic){
-        return OrtopedicService.save(Ortopedic);
+    public Category save(@RequestBody Category category){
+        return categoryService.save(category);
     }
+    
 }
