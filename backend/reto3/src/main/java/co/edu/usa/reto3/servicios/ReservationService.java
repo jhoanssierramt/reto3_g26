@@ -5,10 +5,37 @@
  */
 package co.edu.usa.reto3.servicios;
 
+import co.edu.usa.reto3.modelo.Reservation;
+import co.edu.usa.reto3.repositorios.ReservationRepository;
+import java.util.List;
+import java.util.Optional;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 /**
  *
  * @author Y40-70
  */
+@Service
 public class ReservationService {
+    @Autowired
+    private ReservationRepository ReservationRepository;
     
+    public List<Reservation> getAll(){
+        return ReservationRepository.getAll();
+    }
+    
+    public Reservation save(Reservation Reservation){
+        return ReservationRepository.save(Reservation);
+    }
+    
+    public Reservation getById(int id){
+        Optional<Reservation> Reservation = ReservationRepository.getById(id);
+        return Reservation.orElse(new Reservation());
+//        if (client.isPresent()){
+//            return client.get();
+//        }else{
+//            return new Client();
+//        }
+    }
 }

@@ -1,11 +1,11 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package co.edu.usa.reto3.modelo;
+package Domingo_Reto3.Reto3;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,12 +17,13 @@ import javax.persistence.Table;
 
 /**
  *
- * @author Jhoan Sierra
+ * @author USUARIO
  */
 @Entity
 @Table(name = "reservation")
-public class Reservation {
-    @Id
+public class Reservaciones implements Serializable  {
+    
+     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idReservation;
     private Date startDate;
@@ -32,12 +33,12 @@ public class Reservation {
     @ManyToOne
     @JoinColumn(name = "id")
     @JsonIgnoreProperties("reservations")
-    private Ortopedic ortopedic;
+    private Bike bike;
 
     @ManyToOne
     @JoinColumn(name = "idClient")
     @JsonIgnoreProperties({"reservations","messages"})
-    private Client client;
+    private Cliente client;
 
     private String score; //depende el grupo
 
@@ -73,19 +74,19 @@ public class Reservation {
         this.status = status;
     }
 
-    public Ortopedic getOrtopedic() {
-        return ortopedic;
+    public Bike getBike() {
+        return bike;
     }
 
-    public void setOrtopedic(Ortopedic ortopedic) {
-        this.ortopedic = ortopedic;
+    public void setBike(Bike bike) {
+        this.bike = bike;
     }
 
-    public Client getClient() {
+    public Cliente getClient() {
         return client;
     }
 
-    public void setClient(Client client) {
+    public void setClient(Cliente client) {
         this.client = client;
     }
 
@@ -96,6 +97,7 @@ public class Reservation {
     public void setScore(String score) {
         this.score = score;
     }
+    
     
     
 }
