@@ -2,7 +2,7 @@ function actualizar(){
     console.log("ejecutando funcion para actualizar");
     console.debug("otro mensaje");
     let message = {
-        id: +$("#id").val(),
+        idMessage: +$("#idMessage").val(),
         messagetext: $("#messagetext").val(),
 
     };
@@ -10,7 +10,7 @@ function actualizar(){
     console.log(message);
 
     $.ajax({
-        url: "https://gec2a6a8aac81ca-orthesis.adb.sa-santiago-1.oraclecloudapps.com/ords/admin/message/message",
+        url: "localhost:8080/api/Message/update",
         type: 'PUT',
         dataType: 'json',
         headers: {

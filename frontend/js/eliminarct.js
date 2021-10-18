@@ -1,23 +1,23 @@
-function eliminar(identificador){
+function eliminarct(identificadorct){
     console.log("ejecutando funcion para eliminar");
 
-    let message = {
-        id: +identificador
+    let client = {
+        id: +identificadorct
     };
 
-    console.log(message);
+    console.log(client);
 
     $.ajax({
-        url: "localhost:8080/api/Message/delete",
+        url: "localhost:8080/api/Client/delete",
         type: 'DELETE',
         dataType: 'json',
         headers: {
             "Content-Type": "application/json"
         },
-        data: JSON.stringify(message),
+        data: JSON.stringify(client),
         statusCode:{
             204:function(){
-                alert('Se ha eliminado el mensaje');
+                alert('Se ha eliminado el cliente');
             }
         },
     });

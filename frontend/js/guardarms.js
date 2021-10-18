@@ -2,14 +2,16 @@ function guardar(){
     console.log("ejecutando funcion guardar");
 
     let message = {
-        id: +$("#id").val(),
+        idMessage: +$("#idMessage").val(),
         messagetext: $("#messagetext").val(),
+        idClient: +$("#idClient").val(),
+        id: +$("#id").val()
     }; 
 
     console.log(message);
 
     $.ajax({
-        url: "https://gec2a6a8aac81ca-orthesis.adb.sa-santiago-1.oraclecloudapps.com/ords/admin/message/message",
+        url: "localhost:8080/api/Message/save",
         type: 'POST',
         dataType: 'json',
         headers: {

@@ -8,7 +8,7 @@ function eliminar(identificador){
     console.log(message);
 
     $.ajax({
-        url: "https://gec2a6a8aac81ca-orthesis.adb.sa-santiago-1.oraclecloudapps.com/ords/admin/orthesis/orthesis",
+        url: "localhost:8080/api/Ortopedic/delete",
         type: 'DELETE',
         dataType: 'json',
         headers: {

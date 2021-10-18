@@ -1,6 +1,6 @@
-function consultar(){
+function consultarca(){
     $.ajax({
-        url: "localhost:8080/api/Ortopedic/all",
+        url: "localhost:8080/api/Category/all",
         type: 'GET',
         dataType: 'json',
         success: function(respuesta){
@@ -18,12 +18,8 @@ function mostrarRespuesta(items){
                   <tr>
                     <th>ID</th>
                     <th>NAME</th>
-                    <th>BRAND</th>
-                    <th>YEAR</th>
                     <th>DESCRIPTION</th>
-                    <th>CATEGORY</th>
-                    <th>MESSAGES</th>
-                    <th>RESERVATIONS</th>
+                    <th>ORTOPEDICS</th>
                     <th>ACCIONES</th>
                   </tr>`;
                   
@@ -32,15 +28,11 @@ function mostrarRespuesta(items){
         tabla +=`<tr>
                    <td>${items[i].id}</td>
                    <td>${items[i].name}</td>
-                   <td>${items[i].brand}</td>
-                   <td>${items[i].year}</td>
                    <td>${items[i].description}</td>
-                   <td>${items[i].category}</td>
-                   <td>${items[i].messages}</td>
-                   <td>${items[i].reservations}</td>
+                   <td>${items[i].ortopedics}</td>
                    <td>
-                        <button onclick="eliminar(${items[i].id})">Eliminar</button>
-                        <a href="detalleorth.html?id=${items[i].id}" disabled>Editar Orthesis</a>
+                        <button onclick="eliminarca(${items[i].id})">Eliminar</button>
+                        <a href="detalleca.html?id=${items[i].id}" disabled>Editar</a>
                    </td> 
                 </tr>`;
     }

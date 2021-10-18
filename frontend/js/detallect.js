@@ -3,22 +3,22 @@ $(document).ready(function () {
     let searchParams = new URLSearchParams(window.location.search)
     if (searchParams.has('id')){
         let id = searchParams.get('id');
-        consultarById(id);
+        consultarByIdCliente(id);
     }
 });
 
-function consultarById(id){
+function consultarByIdCliente(id){
     $.ajax({
-        url: "localhost:8080/api/Message/"+id,
+        url: "localhost:8080/api/Client/"+id,
         type: 'GET',
         dataType: 'json',
         success: function(respuesta){
             console.log(respuesta.items);
             if (respuesta.items.length==1){
-                llenarDatos(respuesta.items[0]);
+                llenarDatosCliente(respuesta.items[0]);
             }else{
                 $("#boton").hide();
-                alert('No se encuentra el mensaje con el id '+id);
+                alert('No se encuentra el cliente con el id '+id);
             }
         },
         error: function (xhr, status) {
@@ -27,8 +27,11 @@ function consultarById(id){
     });
 }
 
-function llenarDatos(item){
-    $("#id").val(item.id);
-    $("#messagetext").val(item.messagetext);
-
+function llenarDatosCliente(item){
+    $("#idClient").val(item.idClient);
+    $("#email").val(item.email);
+    $("#password").val(item.password);
+    $("#name").val(item.name);
+    $("#age").val(item.age);
+    
 }

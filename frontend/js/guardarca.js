@@ -1,28 +1,25 @@
 function guardar(){
     console.log("ejecutando funcion guardar");
 
-    let ortopedic = {
+    let category = {
         id: +$("#id").val(),
-        brand: $("#brand").val(),
-        year: +$("#year").val(),
         name: $("#name").val(),
-        description: $("#description").val(),
-        categoryId: +$("#categoryId").val()
+        description: $("#description").val()
     }; 
 
-    console.log(ortopedic);
+    console.log(category);
 
     $.ajax({
-        url: "localhost:8080/api/Ortopedic/save",
+        url: "localhost:8080/api/Category/save",
         type: 'POST',
         dataType: 'json',
         headers: {
             "Content-Type": "application/json"
         },
-        data: JSON.stringify(ortopedic),
+        data: JSON.stringify(category),
         statusCode:{
             201:function(){
-                alert('Se ha registrado la orthesis');
+                alert('Se ha registrado la categoria');
             }
         },
     });

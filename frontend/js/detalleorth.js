@@ -9,7 +9,7 @@ $(document).ready(function () {
 
 function consultarById(id){
     $.ajax({
-        url: "https://gec2a6a8aac81ca-orthesis.adb.sa-santiago-1.oraclecloudapps.com/ords/admin/orthesis/orthesis/"+id,
+        url: "localhost:8080/api/Ortopedic/"+id,
         type: 'GET',
         dataType: 'json',
         success: function(respuesta){
@@ -30,9 +30,9 @@ function consultarById(id){
 
 function llenarDatos(item){
     $("#id").val(item.id);
-    $("#brand").val(item.brand);
-    $("#model").val(item.model);
-    $("#category_id").val(item.category_id);
     $("#name").val(item.name);
+    $("#brand").val(item.brand);
+    $("#year").val(item.year);
+    $("#description").val(item.description);
 
 }
