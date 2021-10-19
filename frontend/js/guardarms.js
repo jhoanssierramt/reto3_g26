@@ -3,15 +3,15 @@ function guardar(){
 
     let message = {
         idMessage: +$("#idMessage").val(),
-        messagetext: $("#messagetext").val(),
-        idClient: +$("#idClient").val(),
-        id: +$("#id").val()
+        messageText: $("#messagetext").val(),
+        client: {idClient: +$("#idClient").val()},
+        ortopedic: {id: +$("#id").val()}
     }; 
 
     console.log(message);
 
     $.ajax({
-        url: "localhost:8080/api/Message/save",
+        url: "http://localhost:8080/api/Message/save",
         type: 'POST',
         dataType: 'json',
         headers: {

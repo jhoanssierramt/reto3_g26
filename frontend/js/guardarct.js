@@ -12,7 +12,7 @@ function guardarct(){
     console.log(client);
 
     $.ajax({
-        url: "localhost:8080/api/Client/save",
+        url: "http://localhost:8080/api/Client/save",
         type: 'POST',
         dataType: 'json',
         headers: {

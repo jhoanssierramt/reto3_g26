@@ -1,11 +1,11 @@
 function consultar(){
     $.ajax({
-        url: "localhost:8080/api/Ortopedic/all",
+        url: "http://localhost:8080/api/Ortopedic/all",
         type: 'GET',
         dataType: 'json',
         success: function(respuesta){
-            console.log(respuesta.items);
-            mostrarRespuesta(respuesta.items);
+            console.log(respuesta);
+            mostrarRespuesta(respuesta);
         },
         error: function (xhr, status) {
             alert('ha sucedido un problema');
@@ -21,9 +21,6 @@ function mostrarRespuesta(items){
                     <th>BRAND</th>
                     <th>YEAR</th>
                     <th>DESCRIPTION</th>
-                    <th>CATEGORY</th>
-                    <th>MESSAGES</th>
-                    <th>RESERVATIONS</th>
                     <th>ACCIONES</th>
                   </tr>`;
                   
@@ -35,11 +32,8 @@ function mostrarRespuesta(items){
                    <td>${items[i].brand}</td>
                    <td>${items[i].year}</td>
                    <td>${items[i].description}</td>
-                   <td>${items[i].category}</td>
-                   <td>${items[i].messages}</td>
-                   <td>${items[i].reservations}</td>
                    <td>
-                        <button onclick="eliminar(${items[i].id})">Eliminar</button>
+                        <button onclick="eliminar(${items[i].id})" disabled>Eliminar</button>
                         <a href="detalleorth.html?id=${items[i].id}" disabled>Editar Orthesis</a>
                    </td> 
                 </tr>`;

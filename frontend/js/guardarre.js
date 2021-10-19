@@ -1,18 +1,18 @@
-function guardar(){
+function guardarre(){
     console.log("ejecutando funcion guardar");
 
     let reservation = {
         idReservation: +$("#idReservation").val(),
         startDate: $("#startDate").val(),
         devolutionDate: $("#devolutionDate").val(),
-        id: $("#id").val(),
-        idClient: $("#idClient").val()
+        client: {idClient: +$("#idClient").val()},
+        ortopedic: {id: +$("#id").val()}
     }; 
 
     console.log(reservation);
 
     $.ajax({
-        url: "localhost:8080/api/Reservation/save",
+        url: "http://localhost:8080/api/Reservation/save",
         type: 'POST',
         dataType: 'json',
         headers: {

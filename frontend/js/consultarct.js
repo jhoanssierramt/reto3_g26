@@ -1,11 +1,11 @@
 function consultarct(){
     $.ajax({
-        url: "localhost:8080/api/Client/all",
+        url: "http://localhost:8080/api/Client/all",
         type: 'GET',
         dataType: 'json',
         success: function(respuesta){
-            console.log(respuesta.items);
-            mostrarRespuesta(respuesta.items);
+            console.log(respuesta);
+            mostrarRespuesta(respuesta);
         },
         error: function (xhr, status) {
             alert('ha sucedido un problema');
@@ -31,7 +31,7 @@ function mostrarRespuesta(items){
                    <td>${items[i].name}</td>
                    <td>${items[i].age}</td>
                    <td>
-                        <button onclick="eliminarct(${items[i].id})">Eliminar</button>
+                        <button onclick="eliminarct(${items[i].id})" disabled>Eliminar</button>
                         <a href="detallect.html?id=${items[i].id}" disabled>Editar</a>
                    </td> 
                 </tr>`;

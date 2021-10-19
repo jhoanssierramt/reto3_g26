@@ -1,11 +1,14 @@
 function consultarca(){
     $.ajax({
-        url: "localhost:8080/api/Category/all",
+        url: "http://144.22.57.56:8080/api/Category/all",
         type: 'GET',
         dataType: 'json',
         success: function(respuesta){
-            console.log(respuesta.items);
-            mostrarRespuesta(respuesta.items);
+            console.log(respuesta);
+            console.log(respuesta[1].ortopedics);
+            //console.log(respuesta.items);
+            //mostrarRespuesta(respuesta.items);
+            mostrarRespuesta(respuesta);
         },
         error: function (xhr, status) {
             alert('ha sucedido un problema');
@@ -19,7 +22,6 @@ function mostrarRespuesta(items){
                     <th>ID</th>
                     <th>NAME</th>
                     <th>DESCRIPTION</th>
-                    <th>ORTOPEDICS</th>
                     <th>ACCIONES</th>
                   </tr>`;
                   
@@ -29,9 +31,8 @@ function mostrarRespuesta(items){
                    <td>${items[i].id}</td>
                    <td>${items[i].name}</td>
                    <td>${items[i].description}</td>
-                   <td>${items[i].ortopedics}</td>
                    <td>
-                        <button onclick="eliminarca(${items[i].id})">Eliminar</button>
+                        <button onclick="eliminarca(${items[i].id})" disabled>Eliminar</button>
                         <a href="detalleca.html?id=${items[i].id}" disabled>Editar</a>
                    </td> 
                 </tr>`;

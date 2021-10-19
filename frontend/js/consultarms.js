@@ -1,11 +1,11 @@
 function consultar(){
     $.ajax({
-        url: "localhost:8080/api/Message/all",
+        url: "http://localhost:8080/api/Message/all",
         type: 'GET',
         dataType: 'json',
         success: function(respuesta){
-            console.log(respuesta.items);
-            mostrarRespuesta(respuesta.items);
+            console.log(respuesta);
+            mostrarRespuesta(respuesta);
         },
         error: function (xhr, status) {
             alert('ha sucedido un problema');
@@ -24,10 +24,10 @@ function mostrarRespuesta(items){
     
     for (var i=0; i < items.length; i++) {
         tabla +=`<tr>
-                   <td>${items[i].id}</td>
-                   <td>${items[i].messagetext}</td>
+                   <td>${items[i].idMessage}</td>
+                   <td>${items[i].messageText}</td>
                    <td>
-                        <button onclick="eliminar(${items[i].id})">Eliminar</button>
+                        <button onclick="eliminar(${items[i].id})" disabled>Eliminar</button>
                         <a href="detallems.html?id=${items[i].id}" disabled>Editar Mensaje</a>
                    </td> 
                 </tr>`;

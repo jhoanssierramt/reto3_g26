@@ -5,15 +5,15 @@ function guardar(){
         id: +$("#id").val(),
         brand: $("#brand").val(),
         year: +$("#year").val(),
+        category: {id: +$("#categoryId").val()},
         name: $("#name").val(),
-        description: $("#description").val(),
-        categoryId: +$("#categoryId").val()
+        description: $("#description").val()        
     }; 
 
     console.log(ortopedic);
 
     $.ajax({
-        url: "localhost:8080/api/Ortopedic/save",
+        url: "http://localhost:8080/api/Ortopedic/save",
         type: 'POST',
         dataType: 'json',
         headers: {

@@ -1,4 +1,4 @@
-function guardar(){
+function guardarca(){
     console.log("ejecutando funcion guardar");
 
     let category = {
@@ -10,7 +10,7 @@ function guardar(){
     console.log(category);
 
     $.ajax({
-        url: "localhost:8080/api/Category/save",
+        url: "http://localhost:8080/api/Category/save",
         type: 'POST',
         dataType: 'json',
         headers: {

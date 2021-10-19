@@ -1,11 +1,11 @@
 function consultarre(){
     $.ajax({
-        url: "localhost:8080/api/Reservation/all",
+        url: "http://localhost:8080/api/Reservation/all",
         type: 'GET',
         dataType: 'json',
         success: function(respuesta){
-            console.log(respuesta.items);
-            mostrarRespuesta(respuesta.items);
+            console.log(respuesta);
+            mostrarRespuesta(respuesta);
         },
         error: function (xhr, status) {
             alert('ha sucedido un problema');
@@ -20,8 +20,6 @@ function mostrarRespuesta(items){
                     <th>startDate</th>
                     <th>devolutionDate</th>
                     <th>status</th>
-                    <th>ortopedic</th>
-                    <th>client</th>
                     <th>score</th>
                     <th>Acciones</th>
                   </tr>`;
@@ -33,11 +31,9 @@ function mostrarRespuesta(items){
                    <td>${items[i].startDate}</td>
                    <td>${items[i].devolutionDate}</td>
                    <td>${items[i].status}</td>
-                   <td>${items[i].ortopedic}</td>
-                   <td>${items[i].client}</td>
                    <td>${items[i].score}</td>
                    <td>
-                        <button onclick="eliminarca(${items[i].id})">Eliminar</button>
+                        <button onclick="eliminarca(${items[i].id})" disabled>Eliminar</button>
                         <a href="detallere.html?id=${items[i].id}" disabled>Editar</a>
                    </td> 
                 </tr>`;
